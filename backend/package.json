@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+   "scripts": {
+    "start": "node --trace-uncaught --trace-warnings src/index.js",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashish96300/promo-site.git"
+  },
+  "keywords": [
+    "promo"
+  ],
+  "author": "Ashish Sen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashish96300/promo-site/issues"
+  },
+  "homepage": "https://github.com/Ashish96300/promo-site#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.8.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.0.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
