@@ -1,5 +1,5 @@
 import {Router} from "express"
-import { addSubcriber ,getAllSubscriber } from "../controllers/subscribers"
+import { addSubcriber ,getAllSubscriber } from "../controllers/subscribers.controller.js"
 
 const router=Router()
 

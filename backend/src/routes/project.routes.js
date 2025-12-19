@@ -1,6 +1,6 @@
 import {Router} from "express"
-import { upload } from "../midllewares/multer.middlewears.js"
 import { addProject ,getAllProject } from "../controllers/project.controller.js"
+import { upload } from "../middlewares/multer.middleware.js"
 
 const router=Router()
 

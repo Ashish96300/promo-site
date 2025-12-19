@@ -1,6 +1,8 @@
+console.log("CLIENT ROUTES LOADED");
+
 import {Router} from "express"
-import { upload } from "../midllewares/multer.middlewears.js"
 import { addClient ,getAllClient } from "../controllers/client.controller.js"
+import { upload } from "../middlewares/multer.middleware.js"
 
 const router=Router()
 
