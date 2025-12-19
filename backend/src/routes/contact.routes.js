@@ -1,5 +1,5 @@
 import {Router} from "express"
-import { upload } from "../midllewares/multer.middlewears.js"
+import { addContact ,getAllContact } from "../controllers/contact.controller"
 
 const router=Router()
 

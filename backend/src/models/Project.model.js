@@ -6,7 +6,7 @@ const projectSchema =new mongoose.Schema({
         required:true,
         trim: true
     },
-    ProjectsrojectName:{
+    projectsrojectName:{
         type:String,
         required:true,
         trim: true

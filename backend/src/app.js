@@ -25,7 +25,15 @@ app.use(express.static("public"));
 app.use(cookieParser());                                                    
 console.log(process.env.CORS_ORIGIN);
 
+import clientRouter from './routes/client.routes.js';
+import contactRouter from './routes/contact.routes.js';
+import projectRouter from './routes/project.routes.js';
+import subscribersRouter from './routes/subscribers.routes.js';
 
+app.use("/api/v1/client", clientRouter);
+app.use("/api/v1/contact" ,contactRouter);
+app.use("/api/v1/project" ,projectRouter);
+app.use("/api/v1/subscribers" ,subscribersRouter);
 
 app.use(errorMiddleware);
 export { app };

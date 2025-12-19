@@ -1,9 +1,9 @@
 import {Router} from "express"
-import { upload } from "../midllewares/multer.middlewears.js"
+import { addSubcriber ,getAllSubscriber } from "../controllers/subscribers"
 
 const router=Router()
 
-router.route("/add-sub").post(addSub)
-router.route('/get-all-sub').get(getAllSub)
+router.route("/add-sub").post(addSubcriber)
+router.route('/get-all-sub').get(getAllSubscriber)
 
 export default router
