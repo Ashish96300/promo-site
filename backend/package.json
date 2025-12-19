@@ -1,10 +1,11 @@
 {
   "name": "backend",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
    "scripts": {
     "start": "node --trace-uncaught --trace-warnings src/index.js",
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "dev": "nodemon dotenv/config --experimental-json-modules src/index.js"
   },
   "repository": {
     "type": "git",

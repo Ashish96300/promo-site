@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import errorMiddleware from "./midllewears/err.middlewear.js";
+import errorMiddleware from "./middlewares/error.middleware.js";
 const app = express();
 
 const allowedOrigins = [
