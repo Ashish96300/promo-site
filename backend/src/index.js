@@ -1,6 +1,9 @@
 import express from "express";
 import { connectDB } from "./db/index.js";
+import dotenv from "dotenv";
+
 const app = express();
+dotenv.config();
 
 app.get("/", (req, res) => {
   res.send("Server is running...");
