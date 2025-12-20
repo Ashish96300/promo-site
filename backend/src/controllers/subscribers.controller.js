@@ -1,7 +1,7 @@
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/AsyncHandler.js";
-import { Subscriber  } from "../models/NewsletterSub.model.js";
+import { Subscriber  } from "../models/newsletterSub.model.js";
 
 const addSubcriber  = asyncHandler(async (req, res) => {
     const { email } = req.body;
@@ -46,4 +46,5 @@ const getAllSubscriber = async (req, res) => {
         });
     }
 };
+
 export {addSubcriber ,getAllSubscriber}
