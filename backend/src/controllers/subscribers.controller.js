@@ -46,4 +46,5 @@ const getAllSubscriber = async (req, res) => {
         });
     }
 };
+
 export {addSubcriber ,getAllSubscriber}
