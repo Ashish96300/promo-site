@@ -8,4 +8,4 @@ const subcribersSchema =new mongoose.Schema({
     },
 } ,{timestamps:true})
 
-export const Subcriber= mongoose.model('Subcriber' ,subcribersSchema)
+export const Subscriber = mongoose.model('Subscriber ' ,subcribersSchema)

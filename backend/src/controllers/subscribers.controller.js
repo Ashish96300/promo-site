@@ -1,7 +1,7 @@
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { Subcriber } from "../models/NewsletterSub.model.js";
 import { asyncHandler } from "../utils/AsyncHandler.js";
+import { Subscriber  } from "../models/NewsletterSub.model.js";
 
 const addSubcriber  = asyncHandler(async (req, res) => {
     const { email } = req.body;
@@ -29,16 +29,21 @@ const addSubcriber  = asyncHandler(async (req, res) => {
 
 const getAllSubscriber = async (req, res) => {
     try {
-        const subscriber = await Subcriber.find()
+        const subscriber = await Subscriber.find();
 
         if (subscriber.length === 0) {
-            return res.status(400).json({ message: 'No subscriber details found' });
+            return res.status(404).json({ 
+                subscribers: [], 
+                message: 'No subscriber details found' 
+            });
         }
-
-        return res.status(200).json({ subscriber: subscriber });
+        return res.status(200).json({ subscribers: subscriber });
     } catch (error) {
         console.error('Error fetching subscriber:', error);
-        return res.status(500).json({ message:'Internal Server Error' });
+        return res.status(500).json({ 
+            subscribers: [], // ✅ Always return the array key
+            message: 'Internal Server Error' 
+        });
     }
 };
 export {addSubcriber ,getAllSubscriber}

@@ -4,7 +4,7 @@ import { upload } from "../middlewares/multer.middleware.js"
 
 const router=Router()
 
-router.route("/add-project").post(upload.single("image") ,addProject)
+router.route("/add-project").post(upload.single("projectImage") ,addProject)
 router.route('/get-all-project').get(getAllProject)
 
 export default router

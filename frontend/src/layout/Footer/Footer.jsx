@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FOOTER_CONTENT } from '../../utils/Constants';
+import api from '../../utils/Apiinstance';
+
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setLoading(true);
+    try {
+      // Calling the subscriber API with the email field
+      await api.post('/subscribers/add-sub', { email });
+      alert("Successfully subscribed!");
+      setEmail(''); // Clear input after success
+    } catch (error) {
+      console.error("Subscription error:", error);
+      alert(error.response?.data?.message || "Subscription failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="w-full">
       {/* 1. CTA Banner Section with Background Image */}
@@ -30,16 +53,24 @@ const Footer = () => {
           
           <div className="flex items-center gap-4">
             <span className="text-white font-semibold text-sm">Subscribe Us</span>
-            <div className="flex">
+            {/* Subscription Form */}
+            <form onSubmit={handleSubscribe} className="flex">
               <input 
                 type="email" 
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter Email Address" 
                 className="bg-transparent border border-white/30 text-white px-4 py-2 text-sm focus:outline-none placeholder:text-white/60 w-48 md:w-64"
               />
-              <button className="bg-white text-blue-600 px-6 py-2 text-sm font-bold hover:bg-gray-100 transition-colors">
-                Subscribe
+              <button 
+                type="submit"
+                disabled={loading}
+                className="bg-white text-blue-600 px-6 py-2 text-sm font-bold hover:bg-gray-100 transition-colors disabled:opacity-50"
+              >
+                {loading ? '...' : 'Subscribe'}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -57,7 +88,6 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-4">
-            {/* Social Icons Placeholder */}
             {['twitter', 'instagram', 'facebook', 'linkedin'].map((social) => (
               <a key={social} href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
                 <span className="sr-only">{social}</span>

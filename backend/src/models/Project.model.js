@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 const projectSchema =new mongoose.Schema({
    
     projectImage:{
-        type:[String],
+        type:String,
         required:true,
         trim: true
     },
-    projectsrojectName:{
+    projectName:{
         type:String,
         required:true,
         trim: true

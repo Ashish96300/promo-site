@@ -1,14 +1,24 @@
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home"
+import Admin from "./pages/Admin"
 
 function App() {
 
 
   return (
     <div className="min-h-screen bg-white">
-      {/* You can add your Navbar here later */}
-      <Home/>
-      {/* Next: Add the "Not Your Average Realtor" section below */}
+     <Router>
+      <Routes>
+        {/* Public Landing Page */}
+        <Route path="/" element={<Home />} />
+
+        {/* Admin Management Panel */}
+        <Route path="/admin" element={<Admin />} />
+        
+        {/* Optional: 404 Page or Redirect */}
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </Router>
     </div>
   )
 }
