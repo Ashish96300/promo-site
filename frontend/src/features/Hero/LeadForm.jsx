@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import api from '../../utils/Apiinstance';
 
 const LeadForm = () => {
-  // Fields matched exactly to backend requirements
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -13,12 +12,10 @@ const LeadForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // POST request to the specified endpoint
       const response = await api.post('/contact/add-contact', formData);
       console.log("Response:", response.data);
       alert("Contact added successfully!");
-      
-      // Reset form fields
+    
       setFormData({
         fullName: '',
         email: '',

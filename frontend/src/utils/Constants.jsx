@@ -24,7 +24,7 @@ export const SERVICES_CONTENT = {
       {
         title: "Potential ROI",
         description: "Whether you are looking to buy a fixer-upper or renovate your current home for sale, we will walk you through potential returns for projects.",
-        icon: "🏠" // You can replace these with Lucide-react icons later
+        icon: "🏠" 
       },
       {
         title: "Design",
@@ -42,6 +42,6 @@ export const SERVICES_CONTENT = {
 export const FOOTER_CONTENT = {
   ctaText: "Learn more about our listing process, as well as our additional staging and design work.",
   ctaButton: "LEARN MORE",
-  copyright: "All Rights Reserved 2025", // Updated year
+  copyright: "All Rights Reserved 2025", 
   navLinks: ["Home", "Services", "Projects", "Testimonials", "Contact"]
 };

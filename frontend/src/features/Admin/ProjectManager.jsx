@@ -37,31 +37,23 @@ const ProjectManager = () => {
       setLoading(true);
 
       const data = new FormData();
-      // MUST match your backend controller/model keys
       data.append('projectName', formData.projectName);
       data.append('projectDescription', formData.projectDescription);
-      
-      // MUST match upload.single("projectImage") in your backend route
       data.append('projectImage', formData.image);
 
-      // Sending the request
       await api.post('/project/add-project', data);
 
-      // Reset local state
       setFormData({
         projectName: '',
         projectDescription: '',
         image: null,
       });
 
-      // Reset the HTML file input manually
       e.target.reset();
 
-      // Refresh the list and notify user
       fetchProjects();
       alert("Project added successfully!");
     } catch (error) {
-      // Detailed error logging for debugging
       console.error('Failed to add project:', error.response?.data || error);
       alert(error.response?.data?.message || "Internal Server Error");
     } finally {

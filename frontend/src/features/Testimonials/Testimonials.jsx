@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import api from '../../utils/Apiinstance';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -12,76 +10,82 @@ const TestimonialsSection = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchClients = async () => {
       try {
         const response = await api.get('/client/get-all-client');
-        // Check if your data is nested. Try response.data.clients or response.data.testimonials
         const dataArray = response.data.clients || response.data.testimonials || response.data;
-        
-        setTestimonials(Array.isArray(dataArray) ? dataArray : []); 
+        setTestimonials(Array.isArray(dataArray) ? dataArray : []);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching clients:", error);
         setLoading(false);
       }
     };
-
     fetchClients();
   }, []);
 
   if (loading) return <div className="text-center py-20">Loading Testimonials...</div>;
 
   return (
-    <section className="py-20 bg-white relative">
+    <section className="py-24 bg-[#F8FAFC] relative">
       <div className="container mx-auto px-6">
-        
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-[#1A365D] mb-2">Happy Clients</h2>
-          <div className="w-16 h-1 bg-blue-600 mx-auto"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1A365D] mb-4">Happy Clients</h2>
+          <div className="w-20 h-1 bg-[#FF7A00] mx-auto mb-6"></div>
+          <p className="text-gray-500 max-w-xl mx-auto">We take pride in our work and the relationships we build with our clients.</p>
         </div>
 
         {/* Swiper Container */}
-        <div className="relative px-12"> 
+        <div className="relative px-4">
           {testimonials.length > 0 ? (
             <Swiper
               modules={[Navigation, Pagination]}
-              spaceBetween={30}
+              spaceBetween={24}
               slidesPerView={1}
               navigation={{
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom',
+                nextEl: '.testimonial-next',
+                prevEl: '.testimonial-prev',
               }}
+              pagination={{ clickable: true, el: '.custom-pagination' }}
               breakpoints={{
                 640: { slidesPerView: 2 },
-                1024: { slidesPerView: 5 },
+                1024: { slidesPerView: 3 },
               }}
-              className="mySwiper"
+              className="pb-16"
             >
               {testimonials.map((item) => (
-                <SwiperSlide key={item._id || item.id}>
-                  <div className="flex flex-col items-center text-center">
-                    {/* Image from Backend */}
-                    <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-white shadow-lg">
-                      <img 
-                        src={item.image} 
-                        alt={item.name} 
-                        className="w-full h-full object-cover" 
-                        onError={(e) => { e.target.src = 'https://via.placeholder.com/150' }}
-                      />
+                <SwiperSlide key={item._id || item.id} className="h-auto">
+                  {/* Card Container */}
+                  <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                    
+                    {/* Client Image Card Header */}
+                    <div className="relative mb-6">
+                      <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-md relative z-10">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => { e.target.src = 'https://via.placeholder.com/150' }}
+                        />
+                      </div>
+                      {/* Decorative quote icon */}
+                      <div className="absolute -bottom-2 -right-2 bg-[#FF7A00] text-white p-2 rounded-full z-20 shadow-sm">
+                        <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.895 14.912 16 16.017 16H19.017C19.569 16 20.017 15.552 20.017 15V9C20.017 8.448 19.569 8 19.017 8H16.017C15.465 8 15.017 8.448 15.017 9V12C15.017 12.552 14.569 13 14.017 13H11.017V21H14.017ZM3.017 21H6.017L6.017 18C6.017 16.895 6.912 16 8.017 16H11.017V13H8.017C7.465 13 7.017 12.552 7.017 12V9C7.017 8.448 7.465 8 8.017 8H11.017V5H8.017C6.912 5 6.017 5.895 6.017 7V9C6.017 10.105 5.122 11 4.017 11H3.017V21ZM14.017 13H11.017V5H14.017V13Z"/></svg>
+                      </div>
                     </div>
-                    {/* Star Rating */}
-                    <div className="flex text-orange-400 mb-4 text-xs">
-                      {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
-                    </div>
-                    {/* Description from Backend */}
-                    <p className="text-gray-500 text-sm italic mb-4">"{item.description}"</p>
-                    {/* Name from Backend */}
-                    <h4 className="text-[#1A365D] font-bold text-sm">{item.name}</h4>
-                    {/* Designation from Backend */}
-                    <p className="text-gray-400 text-xs mt-1 uppercase tracking-tighter">
-                      {item.designation}
+
+                    {/* Content */}
+                    <p className="text-gray-600 text-sm leading-relaxed italic mb-8 flex-grow">
+                      "{item.description}"
                     </p>
+
+                    <div className="mt-auto">
+                      <h4 className="text-[#1A365D] font-bold text-lg mb-1">{item.name}</h4>
+                      <p className="text-[#FF7A00] text-xs font-semibold uppercase tracking-widest">
+                        {item.designation}
+                      </p>
+                    </div>
                   </div>
                 </SwiperSlide>
               ))}
@@ -91,17 +95,20 @@ useEffect(() => {
           )}
 
           {/* Custom Navigation Arrows */}
-          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 text-blue-600 hover:text-blue-800 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          <button className="testimonial-prev absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 text-blue-600 hover:text-blue-800 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          <button className="testimonial-next absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
+
+        {/* Custom Pagination (Optional) */}
+        <div className="custom-pagination mt-8 flex justify-center gap-2"></div>
       </div>
     </section>
   );

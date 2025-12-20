@@ -4,7 +4,6 @@ const ProjectCard = ({ image, title, description }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
       
-      {/* Project Image */}
       <div className="h-48 overflow-hidden">
         <img
           src={image}
@@ -13,7 +12,6 @@ const ProjectCard = ({ image, title, description }) => {
         />
       </div>
 
-      {/* Content */}
       <div className="p-6">
         <p className="text-brand-orange text-xs font-bold uppercase tracking-widest mb-2">
           PROJECT

@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import ProjectCard from './ProjectCard';
 import api from '../../utils/Apiinstance';
-
-// Swiper Styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 

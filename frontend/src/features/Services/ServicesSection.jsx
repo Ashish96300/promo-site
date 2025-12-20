@@ -6,11 +6,9 @@ const ServicesSection = () => {
 
   return (
     <section className="py-20 bg-white overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-10">
         
-        {/* --- PART 1: Not Your Average Realtor --- */}
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-32">
-          {/* Left: Text Content */}
           <div className="w-full lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1A365D] mb-6">
               {realtorSection.title}
@@ -19,9 +17,8 @@ const ServicesSection = () => {
               {realtorSection.description}
             </p>
           </div>
-
-          {/* Right: Circular Image Composition */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center h-[400px]">
+          
+          <div className="w-full lg:w-1/2 relative flex justify-center items-center h-[400px] mr-8">
             {/* Main Center Image */}
             <div className="w-64 h-64 rounded-full border-4 border-white shadow-2xl overflow-hidden z-20">
               <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" alt="Realtor" className="w-full h-full object-cover" />

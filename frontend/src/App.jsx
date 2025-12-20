@@ -15,7 +15,6 @@ function App() {
         {/* Admin Management Panel */}
         <Route path="/admin" element={<Admin />} />
         
-        {/* Optional: 404 Page or Redirect */}
         <Route path="*" element={<Home />} />
       </Routes>
     </Router>

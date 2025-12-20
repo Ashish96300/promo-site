@@ -12,10 +12,9 @@ const Footer = () => {
 
     setLoading(true);
     try {
-      // Calling the subscriber API with the email field
       await api.post('/subscribers/add-sub', { email });
       alert("Successfully subscribed!");
-      setEmail(''); // Clear input after success
+      setEmail('');
     } catch (error) {
       console.error("Subscription error:", error);
       alert(error.response?.data?.message || "Subscription failed. Please try again.");
@@ -26,7 +25,6 @@ const Footer = () => {
 
   return (
     <footer className="w-full">
-      {/* 1. CTA Banner Section with Background Image */}
       <div className="relative py-20 bg-cover bg-center text-center" 
            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80')" }}>
         <div className="absolute inset-0 bg-black/50"></div> {/* Overlay */}

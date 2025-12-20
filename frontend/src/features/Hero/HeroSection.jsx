@@ -4,7 +4,6 @@ import LeadForm from './LeadForm';
 const HeroSection = () => {
   return (
     <section className="relative min-h-150px flex items-center pt-20 pb-12">
-      {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80')" }}
@@ -27,8 +26,7 @@ const HeroSection = () => {
             We provide the expertise to make it happen.
           </p>
         </div>
-
-        {/* Right Side: Form */}
+        
         <div className="w-full lg:w-auto flex justify-center">
           <LeadForm />
         </div>
