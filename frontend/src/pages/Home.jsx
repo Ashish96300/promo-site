@@ -10,11 +10,11 @@ function Home() {
   return (
     <main>
        <Navbar/>
-      <HeroSection />
+       <section id="home"> <HeroSection /> </section>
       <ServicesSection/>
-      <AboutSection/>
-      <ProjectsSection />
-      <TestimonialsSection/>
+      <section id="about"> <AboutSection /> </section>
+      <section id="projects"> <ProjectsSection /> </section>
+      <section id="testimonial"> <TestimonialsSection /> </section>
       <Footer/>
     </main>
   );

@@ -10,10 +10,10 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">HOME</a>
-          <a href="#" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">ABOUT</a>
-          <a href="#" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">PAST PROJECTS</a>
-          <a href="#" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">TESTIMONIALS</a>
+          <a href="#home" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">HOME</a>
+          <a href="#about" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">ABOUT</a>
+          <a href="#projects" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">PAST PROJECTS</a>
+          <a href="#testimonial" className="text-brand-blue font-semibold hover:text-brand-orange transition-colors">TESTIMONIALS</a>
           
           <button className="bg-orange-500/45 text-white px-6 py-2 rounded font-bold hover:bg-orange-600 transition-all shadow-md">
             CONTACT
