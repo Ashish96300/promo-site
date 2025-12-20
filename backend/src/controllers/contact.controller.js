@@ -1,7 +1,7 @@
 import { asyncHandler } from "../utils/AsyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { Contact} from "../models/ContactForm.model.js";
+import { Contact} from "../models/contactForm.model.js";
 
 const addContact = asyncHandler(async (req, res) => {
     const { fullName, email, mobileNumber, city } = req.body;
@@ -41,4 +41,5 @@ const getAllContact = async (req, res) => {
         return res.status(500).json({ message:'Internal Server Error' });
     }
 };
+
 export {addContact ,getAllContact}
