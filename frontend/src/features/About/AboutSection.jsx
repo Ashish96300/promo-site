@@ -3,7 +3,7 @@ import { ABOUT_CONTENT } from '../../utils/Constants';
 
 const AboutSection = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-gray-100 relative overflow-hidden">
       {/* Soft Background Blobs */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-50 rounded-full blur-3xl opacity-60 z-0"></div>
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-60 z-0"></div>

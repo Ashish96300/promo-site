@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
   if (loading) return <div className="text-center py-20">Loading Testimonials...</div>;
 
   return (
-    <section className="py-24 bg-[#F8FAFC] relative">
+    <section className="py-24 bg-gray-100 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1A365D] mb-4">Happy Clients</h2>

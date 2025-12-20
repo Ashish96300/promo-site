@@ -29,7 +29,7 @@ const LeadForm = () => {
   };
 
   return (
-    <div className="bg-purple-900/50 p-8 rounded-lg shadow-xl w-full max-w-md my-11">
+    <div className="bg-purple-900/50 p-8 rounded-2xl shadow-xl w-full max-w-md my-11">
       <h3 className="text-white text-2xl font-bold mb-6">Get a Free Consultation</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input 

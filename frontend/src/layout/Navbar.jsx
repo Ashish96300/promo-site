@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+    <nav className="fixed w-full z-50 bg-white/70 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         
         <div className="text-2xl font-black text-brand-blue tracking-tighter">

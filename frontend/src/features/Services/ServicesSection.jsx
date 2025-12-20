@@ -5,7 +5,7 @@ const ServicesSection = () => {
   const { realtorSection, whyChooseUs } = SERVICES_CONTENT;
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="py-20 bg-gray-100 overflow-hidden">
       <div className="container mx-auto px-10">
         
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-32">
@@ -35,9 +35,10 @@ const ServicesSection = () => {
             </div>
 
             {/* Decorative Blue Dot and Rings */}
-            <div className="absolute top-1/2 left-0 w-4 h-4 bg-blue-600 rounded-full"></div>
+            <div className="absolute top-1/2 left-0 w-4 h-4 bg-blue-600/30 rounded-full scale-110"></div>
             <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-orange-500 rounded-full"></div>
-            <div className="absolute inset-0 border-[1px] border-blue-100 rounded-full scale-110 opacity-50"></div>
+             <div className="absolute bottom-3 left-20 w-3 h-3 bg-blue-600/30 rounded-full scale-110"></div>
+            <div className="absolute inset-0 border-4 border-blue-100 rounded-full scale-120 opacity-50"></div>
           </div>
         </div>
 
